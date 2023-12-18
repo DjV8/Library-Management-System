@@ -24,11 +24,11 @@ class Database {
 public:
 	Database() { loadAll(); }
 
-	Vector<Czytelnik> getCzytelnicy();
-	Vector<Ksiazka_W_Obiegu> getKsiazkiWObiegu();
-	Vector<Pracownik> getPracownicy();
-	Vector<Ksiazka> getBooks();
-	Vector<Admin> getAdmins();
+	Vector<Czytelnik>* getCzytelnicy();
+	Vector<Ksiazka_W_Obiegu>* getKsiazkiWObiegu();
+	Vector<Pracownik>* getPracownicy();
+	Vector<Ksiazka>* getKsiazki();
+	Vector<Admin>* getAdmins();
 
 	void printAll();
 
