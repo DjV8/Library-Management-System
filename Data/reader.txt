@@ -1,0 +1,3 @@
+
+C1;Czytelnik1;Czytelnik1;
+C2;Czytelnik2;Czytelnik2;
