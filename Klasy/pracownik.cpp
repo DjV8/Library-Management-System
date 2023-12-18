@@ -1,6 +1,7 @@
 ﻿
 #include "..\Header\pracownik.h"
 #include <iostream>
+#include "..\Header\baza_danych.h"
 using namespace std;
 
 Pracownik::Pracownik() : Czytelnik() {}
@@ -50,27 +51,25 @@ istream& operator>>(istream& in, Pracownik& p) {
 	return in;
 }
 
-
-void Pracownik::dodajKsiazke(const Ksiazka_W_Obiegu& ksiazka) {
-	//listaKsiazek.push_back(ksiazka);
+void Pracownik::dodajKsiazke(Database& a, const Ksiazka k)
+{
+	a.getKsiazki()->push(k);
 }
 
-void Pracownik::usunKsiazke(const Ksiazka_W_Obiegu& ksiazka) {
-	// Załóżmy, że KsiazkiWObiegu mają przeciążony operator porównania do sprawdzania równości
-	/*
-	auto it = std::find(listaKsiazek.begin(), listaKsiazek.end(), ksiazka);
-	if (it != listaKsiazek.end()) {
-		listaKsiazek.erase(it);
+void Pracownik::usunKsiazke(Database& a, Ksiazka k) {
+	int vector_size = a.getKsiazki()->size();
+	for (int i = 0; i < vector_size; i++) {
+		Ksiazka ak = a.getKsiazki()->get(i);
+		if (ak == k) {
+			a.getKsiazki()->remove(i);
+			return;
+		}
 	}
-	*/
 }
 
-void Pracownik::dodajUzytkownika(const Czytelnik& czytelnik) {
-	/*
-	listaCzytelnikow.push_back(czytelnik);
-	*/
-	// Realizacja metody dodawania użytkownika
-
+void Pracownik::dodajCzytelnik(Database& a, const Czytelnik czytelnik) {
+	a.getCzytelnicy()->push(czytelnik);
+	// Realizacja metody dodawania czytelnika
 }
 
 void Pracownik::wyswietlCzasyWypozyczen() {

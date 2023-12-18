@@ -3,16 +3,15 @@
 #include "../Header/baza_Danych.h"
 
 
-Vector<Czytelnik> Database::getCzytelnicy() { return Czytelnicy; }
+Vector<Czytelnik>* Database::getCzytelnicy() { return &Czytelnicy; }
 
-Vector<Ksiazka_W_Obiegu> Database::getKsiazkiWObiegu() { return Ksiazki_W_Obiegu; }
+Vector<Ksiazka_W_Obiegu>* Database::getKsiazkiWObiegu() { return &Ksiazki_W_Obiegu; }
 
-Vector<Pracownik> Database::getPracownicy() { return Pracownicy; }
+Vector<Pracownik>* Database::getPracownicy() { return &Pracownicy; }
 
-Vector<Ksiazka> Database::getBooks() { return Ksiazki; }
+Vector<Ksiazka>* Database::getKsiazki() { return &Ksiazki; }
 
-Vector<Admin> Database::getAdmins() { return Admini; }
-
+Vector<Admin>* Database::getAdmins() { return &Admini; }
 
 
 void Database::printAll()
