@@ -23,7 +23,23 @@ Ksiazka::Ksiazka(string tytul, string autor, string ISBN, int rok_wydania, strin
 
 void Ksiazka::zmien_ilosc(int ilosc) { this->ilosc = ilosc; }
 
+int Ksiazka::get_rok_wydania() { return ilosc; }
 int Ksiazka::get_ilosc() { return ilosc; }
+string Ksiazka::get_tytul() { return tytul; }
+string Ksiazka::get_autor() { return autor; }
+string Ksiazka::get_ISBN() { return ISBN; }
+string Ksiazka::get_wydawnictwo() { return wydawnictwo; }
+
+
+bool operator==(Ksiazka k1, Ksiazka k2)
+{
+	if (k1.get_tytul() != k2.get_tytul()) return false;
+	if (k1.get_autor() != k2.get_autor()) return false;
+	if (k1.get_ISBN() != k2.get_ISBN()) return false;
+	if (k1.get_rok_wydania() != k2.get_rok_wydania()) return false;
+	if (k1.get_wydawnictwo() != k2.get_wydawnictwo()) return false;
+	return true;
+}
 
 ostream& operator<<(ostream& out, Ksiazka& b) {
 	if (&out == &cout) {
