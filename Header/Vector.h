@@ -10,6 +10,7 @@ public:
 
 	void push(T data);
 	void pop(T data);
+	void remove(int id);
 
 	T get(int index);
 	int size();
@@ -59,11 +60,20 @@ inline void Vector<T>::pop(T data)
 }
 
 template<typename T>
+inline void Vector<T>::remove(int id)
+{
+	// usuwa element i na jego miejsce wstawia ostatni
+	if (id >= current_ammount)return;
+	current_ammount--;
+	data_array[id] = data_array[current_ammount];
+}
+
+template<typename T>
 inline T Vector<T>::get(int index)
 {
 	if (index < current_ammount)
 		return data_array[index];
-	return -1;
+	return data_array[0];
 }
 
 template<typename T>
