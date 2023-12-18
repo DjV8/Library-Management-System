@@ -2,28 +2,29 @@
 #define KSIAZKIWOBIEGU_H
 
 #include <iostream>
-#include <vector>
+#include <string>
 
 #include "ksiazka.h"
 
 using namespace std;
 class Ksiazka_W_Obiegu {
 public:
-	void zmienIlosc(const string& tytul, int nowaIlosc);
-	void wypozycz(const string& tytul);
-	void zwroc(const string& tytul);
+	/*
+	void zmienIlosc(Ksiazka& k, int nowaIlosc);
+	void wypozycz(Ksiazka& k, string id_osoby, int koniec_czasu);
+	void zwroc(Ksiazka& k);
+	*/
 
 	Ksiazka_W_Obiegu();
-	Ksiazka_W_Obiegu(int ilosc);
-	int zmianaIlosci(int nowaIlosc);
-	void wypozycz();
-	void zwrot();
+	Ksiazka_W_Obiegu(string ISBN, int koniec_czasu, string id_osoby);
+
+	friend ostream& operator<<(ostream& out, Ksiazka_W_Obiegu& ko);
+	friend istream& operator>>(istream& in, Ksiazka_W_Obiegu& ko);
 
 private:
-	int iloscKsiazek;
-
-	vector<Ksiazka> ksiazki;
-	vector<pair<string, int>> ksiazkiWObiegu;
+	string ISBN;
+	int koniec_czasu;
+	string id_osoby;
 };
 
 #endif

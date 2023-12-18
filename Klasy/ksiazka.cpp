@@ -21,6 +21,10 @@ Ksiazka::Ksiazka(string tytul, string autor, string ISBN, int rok_wydania, strin
 	this->ilosc = ilosc;
 }
 
+void Ksiazka::zmien_ilosc(int ilosc) { this->ilosc = ilosc; }
+
+int Ksiazka::get_ilosc() { return ilosc; }
+
 ostream& operator<<(ostream& out, Ksiazka& b) {
 	if (&out == &cout) {
 		//Wpisywanie do konsoli

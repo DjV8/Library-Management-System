@@ -14,6 +14,11 @@ class Ksiazka {
 public:
 	Ksiazka();
 	Ksiazka(string tytul, string autor, string ISBN, int rok_wydania, string wydawnictwo, int ilosc);
+
+	void zmien_ilosc(int ilosc);
+
+	int get_ilosc();
+
 	friend ostream& operator<<(ostream& out, Ksiazka& b);
 	friend istream& operator>>(istream& in, Ksiazka& b);
 };

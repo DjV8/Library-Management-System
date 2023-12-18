@@ -19,10 +19,10 @@ void Database::printAll()
 {
 
 	Ksiazki.print();
-	//Ksiazki_W_Obiegu.print();
-	//Czytelnicy.print();
-	//Pracownicy.print();
-	//Admini.print();
+	Ksiazki_W_Obiegu.print();
+	Czytelnicy.print();
+	Pracownicy.print();
+	Admini.print();
 }
 
 void Database::loadAll()
@@ -37,12 +37,10 @@ void Database::loadAll()
 	if (readerFile.is_open() && librarianFile.is_open() && adminFile.is_open() && bookFile.is_open() && booksInUseFile.is_open()) {
 
 		load<Ksiazka>(bookFile, Ksiazki);
-		/*
-		load<BookInUse>(booksInUseFile, booksInUse);
-		load<Reader>(readerFile, readers);
-		load<Liblarian>(librarianFile, liblarians);
-		load<admin>(adminFile, admins);
-		*/
+		load<Ksiazka_W_Obiegu>(booksInUseFile, Ksiazki_W_Obiegu);
+		load<Czytelnik>(readerFile, Czytelnicy);
+		load<Pracownik>(librarianFile, Pracownicy);
+		load<Admin>(adminFile, Admini);
 	}
 	else
 		cout << "Error during file opening." << endl;
@@ -67,12 +65,10 @@ void Database::saveAll()
 	if (readerFile.is_open() && librarianFile.is_open() && adminFile.is_open() && bookFile.is_open() && booksInUseFile.is_open()) {
 
 		save<Ksiazka>(bookFile, Ksiazki);
-		/*
-		save<BookInUse>(booksInUseFile, booksInUse);
-		save<Reader>(readerFile, readers);
-		save<Liblarian>(librarianFile, liblarians);
-		save<admin>(adminFile, admins);
-		*/
+		save<Ksiazka_W_Obiegu>(booksInUseFile, Ksiazki_W_Obiegu);
+		save<Czytelnik>(readerFile, Czytelnicy);
+		save<Pracownik>(librarianFile, Pracownicy);
+		save<Admin>(adminFile, Admini);
 	}
 	else
 		cout << "Error during file opening." << endl;
