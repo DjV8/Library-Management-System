@@ -3,49 +3,38 @@
 
 #include "Vector.h"
 
-//miejce na import klas
-//nazwy plików mog¹ byæ inne 
-// to tylko placeholder
-/*
-#include "Book.h"
-#include "Reader.h"
-#include "BookInUse.h"
-#include "Librarian.h"
-#include "Admin.h"
-*/
+#include "ksiazka.h"
+#include "ksiazka_W_obiegu.h"
+#include "pracownik.h"
+#include "czytelnik.h"
+#include "admin.h"
 
 using namespace std;
 
 class Database {
-	//placeholder na wektory
-	/*
-	Vector<Book> books;
-	Vector<Reader> readers;
-	Vector<BookInUse> booksInUse;
-	Vector<Liblarian> liblarians;
-	Vector<admin> admins;
-	*/
+	Vector<Czytelnik> Czytelnicy;
+	Vector<Ksiazka_W_Obiegu> Ksiazki_W_Obiegu;
+	Vector<Pracownik> Pracownicy;
+	Vector<Ksiazka> Ksiazki;
+	Vector<Admin> Admini;
+
 	template <typename T> void load(ifstream& file, Vector<T>& destination);
 	template <typename T> void save(ofstream& file, Vector<T>& source);
 
 public:
 	Database() { loadAll(); }
 
-	//placeholder na dostêp do zawartoœci wektorów
-	/*
-	Vector<Book> getBooks();
-	Vector<Reader> getReaders();
-	Vector<BookInUse> getBooksInUse();
-	Vector<Liblarian> getliblarians();
-	Vector<admin> getAdmins();
-	*/
+	Vector<Czytelnik> getCzytelnicy();
+	Vector<Ksiazka_W_Obiegu> getKsiazkiWObiegu();
+	Vector<Pracownik> getPracownicy();
+	Vector<Ksiazka> getBooks();
+	Vector<Admin> getAdmins();
+
 	void printAll();
 
 	void loadAll();
 	void saveAll();
 
-	//funkcja u¿yta do testu
-	//void addbook(Book b);
 };
 
 

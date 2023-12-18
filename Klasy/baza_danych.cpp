@@ -1,27 +1,28 @@
 #include <iostream>
 
-#include "../Header/Database.h"
+#include "../Header/baza_Danych.h"
 
-/*
-Vector<Book> Database::getBooks() { return books; }
 
-Vector<Reader> Database::getReaders() { return readers; }
+Vector<Czytelnik> Database::getCzytelnicy() { return Czytelnicy; }
 
-Vector<BookInUse> Database::getBooksInUse() { return booksInUse; }
+Vector<Ksiazka_W_Obiegu> Database::getKsiazkiWObiegu() { return Ksiazki_W_Obiegu; }
 
-Vector<Liblarian> Database::getliblarians() { return liblarians; }
+Vector<Pracownik> Database::getPracownicy() { return Pracownicy; }
 
-Vector<admin> Database::getAdmins() { return admins; }
-*/
+Vector<Ksiazka> Database::getBooks() { return Ksiazki; }
+
+Vector<Admin> Database::getAdmins() { return Admini; }
+
+
 
 void Database::printAll()
 {
-	/*
-	books.print();
-	booksInUse.print();
-	readers.print();
-	liblarians.print();
-	admins.print();*/
+
+	Ksiazki.print();
+	//Ksiazki_W_Obiegu.print();
+	//Czytelnicy.print();
+	//Pracownicy.print();
+	//Admini.print();
 }
 
 void Database::loadAll()
@@ -34,8 +35,9 @@ void Database::loadAll()
 
 
 	if (readerFile.is_open() && librarianFile.is_open() && adminFile.is_open() && bookFile.is_open() && booksInUseFile.is_open()) {
+
+		load<Ksiazka>(bookFile, Ksiazki);
 		/*
-		load<Book>(bookFile, books);
 		load<BookInUse>(booksInUseFile, booksInUse);
 		load<Reader>(readerFile, readers);
 		load<Liblarian>(librarianFile, liblarians);
@@ -63,8 +65,9 @@ void Database::saveAll()
 
 
 	if (readerFile.is_open() && librarianFile.is_open() && adminFile.is_open() && bookFile.is_open() && booksInUseFile.is_open()) {
+
+		save<Ksiazka>(bookFile, Ksiazki);
 		/*
-		save<Book>(bookFile, books);
 		save<BookInUse>(booksInUseFile, booksInUse);
 		save<Reader>(readerFile, readers);
 		save<Liblarian>(librarianFile, liblarians);
