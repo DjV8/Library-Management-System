@@ -21,6 +21,36 @@ Ksiazka::Ksiazka(string tytul, string autor, string ISBN, int rok_wydania, strin
 	this->ilosc = ilosc;
 }
 
+
+//====================dodałem
+
+void Ksiazka::zmienTytul(string nowyTytul) {
+    tytul = nowyTytul;
+}
+
+void Ksiazka::zmienAutora(string nowyAutor) {
+    autor = nowyAutor;
+}
+
+void Ksiazka::zmienISBN(string nowyISBN) {
+    ISBN = nowyISBN;
+}
+
+void Ksiazka::zmienRokWydania(int nowyRokWydania) {
+    rok_wydania = nowyRokWydania;
+}
+
+void Ksiazka::zmienWydawnictwo(string noweWydawnictwo) {
+    wydawnictwo = noweWydawnictwo;
+}
+
+void Ksiazka::zmienIlosc(int nowaIlosc) {
+    ilosc = nowaIlosc;
+}
+
+
+//=============================================
+
 void Ksiazka::zmien_ilosc(int ilosc) { this->ilosc = ilosc; }
 
 int Ksiazka::get_rok_wydania() { return ilosc; }
