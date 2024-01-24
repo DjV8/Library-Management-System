@@ -94,11 +94,32 @@ void Pracownik::dodajCzytelnik(Database& a, const Czytelnik czytelnik) {
 	a.getCzytelnicy()->push(czytelnik);
 	// Realizacja metody dodawania czytelnika
 }
-
+/*
 void Pracownik::wyswietlCzasyWypozyczen() {
 	// Realizacja metody wyświetlania wygasłych terminów wypozyczen
 }
+*/
+//=========================================zmieniłem
+void Pracownik::wyswietlSkonczoneCzasyWypozyczen(Database& a) {
+    cout << "Wyświetlanie skończonych czasów wypożyczeń:" << endl;
+    
+    for (int i = 0; i < a.getKsiazkiWObiegu()->size(); ++i) {
+        Ksiazka_W_Obiegu ko = a.getKsiazkiWObiegu()->get(i);
 
+        string ISBN = ko.getISBN();
+        int czas_wypozyczenia = ko.getCzasWypozyczenia();
+        int czas_zakonczenia = ko.getCzasZakonczenia();
+
+        if (czas_zakonczenia < time(nullptr)) {
+            cout << "ISBN: " << ISBN << endl;
+            cout << "Czas wypożyczenia: " << czas_wypozyczenia << endl;
+            cout << "Czas zakończenia wypożyczenia: " << czas_zakonczenia << endl;
+
+            cout << endl;
+        }
+    }
+}
+//=================================================
 void Pracownik::wyswietlSkonczoneCzasyWypozyczen() {
 	/*
 	for (auto& czytelnik : listaCzytelnikow) {
