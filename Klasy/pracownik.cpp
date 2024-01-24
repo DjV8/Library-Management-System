@@ -51,6 +51,27 @@ istream& operator>>(istream& in, Pracownik& p) {
 	return in;
 }
 
+//==================================zmieniłem
+
+void Pracownik::dodajKsiazke(Database& a, const Ksiazka k) {
+    a.getKsiazki()->push(k);
+    cout << "Ksiazka dodana do bazy danych." << endl;
+}
+
+void Pracownik::usunKsiazke(Database& a, Ksiazka k) {
+    int vector_size = a.getKsiazki()->size();
+    for (int i = 0; i < vector_size; i++) {
+        Ksiazka ak = a.getKsiazki()->get(i);
+        if (ak == k) {
+            a.getKsiazki()->remove(i);
+            cout << "Ksiazka usunięta z bazy danych." << endl;
+            return;
+        }
+    }
+    cout << "Ksiazka nie znaleziona w bazie danych." << endl;
+}
+
+/*
 void Pracownik::dodajKsiazke(Database& a, const Ksiazka k)
 {
 	a.getKsiazki()->push(k);
@@ -66,6 +87,8 @@ void Pracownik::usunKsiazke(Database& a, Ksiazka k) {
 		}
 	}
 }
+*/
+//==================================================
 
 void Pracownik::dodajCzytelnik(Database& a, const Czytelnik czytelnik) {
 	a.getCzytelnicy()->push(czytelnik);
