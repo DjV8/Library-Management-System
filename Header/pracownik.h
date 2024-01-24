@@ -20,7 +20,8 @@ public:
 	void dodajKsiazke(Database& a, Ksiazka k);
 	void usunKsiazke(Database& a, const Ksiazka k);
 	void dodajCzytelnik(Database& a, const Czytelnik czytelnik);
-	void wyswietlSkonczoneCzasyWypozyczen();
+	//void wyswietlSkonczoneCzasyWypozyczen();
+	void wyswietlSkonczoneCzasyWypozyczen(Database& a);//Zmieniłem
 
 	friend ostream& operator<<(ostream& out, Pracownik& p);
 	friend istream& operator>>(istream& in, Pracownik& p);
