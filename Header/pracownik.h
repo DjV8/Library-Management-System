@@ -21,7 +21,12 @@ public:
 	void usunKsiazke(Database& a, const Ksiazka k);
 	void dodajCzytelnik(Database& a, const Czytelnik czytelnik);
 	//void wyswietlSkonczoneCzasyWypozyczen();
-	void wyswietlSkonczoneCzasyWypozyczen(Database& a);//Zmieniłem
+	void wyswietlSkonczoneCzasyWypozyczen(Database& a);//Zmieniłem 1-5
+	void zmienTytul(string nowyTytul);//1
+	void zmienAutora(string nowyAutor);//2
+	void zmienISBN(string nowyISBN);//3
+	void zmienRokWydania(int nowyRokWydania);//4
+	void zmienWydawnictwo(string noweWydawnictwo);//5
 
 	friend ostream& operator<<(ostream& out, Pracownik& p);
 	friend istream& operator>>(istream& in, Pracownik& p);
