@@ -16,17 +16,17 @@ public:
 	*/
 
 	Ksiazka_W_Obiegu();
-	Ksiazka_W_Obiegu(string id_osoby, string ISBN, int czas_wyporzyczenia, int koniec_czasu_wyporzyczenia, bool zwrot = false);
+	Ksiazka_W_Obiegu(string id_osoby, string ISBN, int czas_wypozyczenia, int koniec_czasu_wyporzyczenia, bool zwrot = false);
 
 	string get_ISBN() { return ISBN; }
-	int get_koniec_czasu_wyporzczenia() { return koniec_czasu_wyporzyczenia; }
-	int get_czas_wyporzczenia() { return czas_wyporzyczenia; }
+	int get_koniec_czasu_wypozczenia() { return koniec_czasu_wypozyczenia; }
+	int get_czas_wypozczenia() { return czas_wypozyczenia; }
 	string get_id_osoby() { return id_osoby; }
 	bool get_zwrot() { return zwrot; }
 
 	void set_ISBN(string ISBN) { this->ISBN = ISBN; }
-	void set_koniec_czasu_wyporzyczenia(int koniec_czasu_wyporzyczenia) { this->koniec_czasu_wyporzyczenia = koniec_czasu_wyporzyczenia; }
-	void set_czas_wyporzyczenia(int czas_wyporzyczenia) { this->czas_wyporzyczenia = czas_wyporzyczenia; }
+	void set_koniec_czasu_wypozyczenia(int koniec_czasu_wypozyczenia) { this->koniec_czasu_wypozyczenia = koniec_czasu_wypozyczenia; }
+	void set_czas_wypozyczenia(int czas_wypozyczenia) { this->czas_wypozyczenia = czas_wypozyczenia; }
 	void set_id_osoby(string id_osoby) { this->id_osoby = id_osoby; }
 	void set_zwrot(bool zwrot) { this->zwrot = zwrot; }
 
@@ -36,8 +36,8 @@ public:
 
 private:
 	string ISBN;
-	int koniec_czasu_wyporzyczenia;
-	int czas_wyporzyczenia;
+	int koniec_czasu_wypozyczenia;
+	int czas_wypozyczenia;
 	string id_osoby;
 	bool zwrot;
 };

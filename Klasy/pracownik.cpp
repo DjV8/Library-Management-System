@@ -86,8 +86,8 @@ void Pracownik::wyswietlSkonczoneCzasyWypozyczen(Database& a) {
 		Ksiazka_W_Obiegu ko = a.getKsiazkiWObiegu()->get(i);
 
 		string ISBN = ko.get_ISBN();
-		int czas_wypozyczenia = ko.get_czas_wyporzczenia();
-		int czas_zakonczenia = ko.get_koniec_czasu_wyporzczenia();
+		int czas_wypozyczenia = ko.get_czas_wypozczenia();
+		int czas_zakonczenia = ko.get_koniec_czasu_wypozczenia();
 
 		if (czas_zakonczenia < time(nullptr)) {
 			cout << "ISBN: " << ISBN << endl;

@@ -8,14 +8,14 @@ ostream& operator<<(ostream& out, Ksiazka_W_Obiegu& ko) {
 		//Wpisywanie do konsoli
 		out << "Ksiazka W Obiegu: " << endl;
 		out << "ISBN: " << ko.ISBN << endl;
-		out << "Czas Wyporzyczenia: " << ko.czas_wyporzyczenia << endl;
-		out << "Koniec Czasu Wyporzyczenia: " << ko.koniec_czasu_wyporzyczenia << endl;
+		out << "Czas Wyporzyczenia: " << ko.czas_wypozyczenia << endl;
+		out << "Koniec Czasu Wyporzyczenia: " << ko.koniec_czasu_wypozyczenia << endl;
 		out << "Zwrócona:" << ko.zwrot << endl;
 		out << "id uzytkownika: " << ko.id_osoby << endl;
 	}
 	else {
 		//Wpisywanie do pliku
-		out << endl << ko.ISBN << ";" << ko.czas_wyporzyczenia << ";" << ko.koniec_czasu_wyporzyczenia << ";" << ko.id_osoby << ";" << ko.zwrot << ";";
+		out << endl << ko.ISBN << ";" << ko.czas_wypozyczenia << ";" << ko.koniec_czasu_wypozyczenia << ";" << ko.id_osoby << ";" << ko.zwrot << ";";
 	}
 	return out;
 }
@@ -36,10 +36,10 @@ istream& operator>>(istream& in, Ksiazka_W_Obiegu& ko) {
 				ko.set_ISBN(tmp);
 				break;
 			case 1:
-				ko.set_czas_wyporzyczenia(stoi(tmp));
+				ko.set_czas_wypozyczenia(stoi(tmp));
 				break;
 			case 2:
-				ko.set_koniec_czasu_wyporzyczenia(stoi(tmp));
+				ko.set_koniec_czasu_wypozyczenia(stoi(tmp));
 				break;
 			case 3:
 				ko.set_id_osoby(tmp);
@@ -59,8 +59,8 @@ istream& operator>>(istream& in, Ksiazka_W_Obiegu& ko) {
 Ksiazka_W_Obiegu::Ksiazka_W_Obiegu() {
 	this->id_osoby = "";
 	this->ISBN = "";
-	this->koniec_czasu_wyporzyczenia = 0;
-	this->czas_wyporzyczenia = 0;
+	this->koniec_czasu_wypozyczenia = 0;
+	this->czas_wypozyczenia = 0;
 	this->zwrot = false;
 }
 
@@ -69,8 +69,8 @@ Ksiazka_W_Obiegu::Ksiazka_W_Obiegu(string id_osoby, string ISBN, int czas_wyporz
 {
 	this->id_osoby = id_osoby;
 	this->ISBN = ISBN;
-	this->koniec_czasu_wyporzyczenia = koniec_czasu_wyporzyczenia;
-	this->czas_wyporzyczenia = czas_wyporzyczenia;
+	this->koniec_czasu_wypozyczenia = koniec_czasu_wyporzyczenia;
+	this->czas_wypozyczenia = czas_wyporzyczenia;
 	this->zwrot = zwrot;
 
 }

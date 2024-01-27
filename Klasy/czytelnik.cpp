@@ -77,7 +77,7 @@ void Czytelnik::powiadomOZblizajacymSieTerminie(int dni, Database& db) {
 
 		// Sprawdź, czy książka ma ustalony okres zwrotu
 		if (!zwrot) {
-			int czasZakonczenia = KW->get_koniec_czasu_wyporzczenia();
+			int czasZakonczenia = KW->get_koniec_czasu_wypozczenia();
 
 			// Oblicz, ile dni pozostało do terminu zwrotu.
 			int dniDoZakonczenia = (czasZakonczenia - now) / (24 * 60 * 60);
@@ -135,10 +135,10 @@ void Czytelnik::wyswietlSkonczoneCzasyWypozyczen(Database& db) {
 	cout << "Ksiazki o wygaslych terminach wypozyczen:" << endl;
 
 	for (auto* ksiazkaWObiegu : *ksiazkiWypozyczone) {
-		if (!ksiazkaWObiegu->get_zwrot() && ksiazkaWObiegu->get_koniec_czasu_wyporzczenia() < time(nullptr)) {
+		if (!ksiazkaWObiegu->get_zwrot() && ksiazkaWObiegu->get_koniec_czasu_wypozczenia() < time(nullptr)) {
 			cout << "ISBN: " << ksiazkaWObiegu->get_ISBN() << endl;
-			cout << "Czas wypozyczenia: " << ksiazkaWObiegu->get_czas_wyporzczenia() << endl;
-			cout << "Czas zakonczenia wypozyczenia: " << ksiazkaWObiegu->get_koniec_czasu_wyporzczenia() << endl;
+			cout << "Czas wypozyczenia: " << ksiazkaWObiegu->get_czas_wypozczenia() << endl;
+			cout << "Czas zakonczenia wypozyczenia: " << ksiazkaWObiegu->get_koniec_czasu_wypozczenia() << endl;
 			cout << endl;
 		}
 	}
@@ -149,8 +149,8 @@ void Czytelnik::wyswietlWyporzyczoneKsiazki(Database& db)
 	for (Ksiazka_W_Obiegu* ksiazkaWObiegu : *ksiazkiWypozyczone) {
 		if (!ksiazkaWObiegu->get_zwrot()) {
 			cout << "ISBN: " << ksiazkaWObiegu->get_ISBN() << endl;
-			cout << "Czas wypożyczenia: " << ksiazkaWObiegu->get_czas_wyporzczenia() << endl;
-			cout << "Czas zakończenia wypożyczenia: " << ksiazkaWObiegu->get_koniec_czasu_wyporzczenia() << endl;
+			cout << "Czas wypożyczenia: " << ksiazkaWObiegu->get_czas_wypozczenia() << endl;
+			cout << "Czas zakończenia wypożyczenia: " << ksiazkaWObiegu->get_koniec_czasu_wypozczenia() << endl;
 			cout << endl;
 		}
 	}
