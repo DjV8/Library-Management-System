@@ -4,9 +4,4 @@
 
 /.vs
 /x64/Debug
-/Library-Management-System.sln
-/Library-Management-System.vcxproj
-/Library-Management-System.vcxproj.filters
-*.user
-*.filters
-/Library-Management-System.vcxproj
+/Library-Management-System.*
