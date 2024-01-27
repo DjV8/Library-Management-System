@@ -32,7 +32,7 @@ Ksiazka get_kiazka() {
 	return Ksiazka(tytul, autor, ISBN, rok_wydania, wydawnictwo, ilosc);
 }
 
-Czytelnik get_czytelnik() {
+Czytelnik get_czytelnik(Database& db) {
 	string login;
 	string haslo;
 	string id;
@@ -54,22 +54,34 @@ int main() {
 	cout << "\n Wczytanie Pierwszego Pracownika\n";
 	Pracownik P = a.getPracownicy()->get(0);
 	cout << P;
+	/*
 	cout << "\nDodanie Ksiazki\n";
 	P.dodajKsiazke(a, get_kiazka());
 	cout << "\nDodanie Czytelnika\n";
-	P.dodajCzytelnik(a, get_czytelnik());
+	P.dodajCzytelnik(a, get_czytelnik(a));
 
 	cout << "\nUsuwanie Ksiazki" << endl;
 	P.usunKsiazke(a, get_kiazka());
 
-	a.saveAll();
-
-	/*
-	pracownik1.wyswietlCzasyWypozyczen();
 	*/
+	P.zaladuj_ksiazki_wypozyczone(a);
 
 	/*
-	czytelnicy.powiadomOZblizajacymSieTerminie(7);
+	P.wyszukajDostepneKsiazki("BERSERK", a);
+	cout << "Podaj ISBN: ";
+	string ISBN = "9781506715230";
+	P.wypozyczKsiazke(ISBN, a);
+	P.zwrocKsiazke(ISBN, a);
+	*/
+	P.wyswietlWyporzyczoneKsiazki(a);
+	P.powiadomOZblizajacymSieTerminie(7, a);
+
+
+	/*
+	P.wyswietlCzasyWypozyczen();
+	*/
+	/*
+
 	czytelnicy.wyszukajDostepneKsiazki("Wiedźmin");
 	czytelnicy.wypozyczKsiazke("Wiedźmin");
 	czytelnicy.zwrocKsiazke("Wiedźmin");
@@ -79,5 +91,6 @@ int main() {
 	ksiazkiWObiegu.zwroc("Wiedźmin");
 	*/
 
+	a.saveAll();
 	return 0;
 }
