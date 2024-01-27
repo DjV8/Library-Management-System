@@ -45,10 +45,8 @@ Vector<Ksiazka> Database::get_ksiazki_by_tytul(string tytul)
 {
 	Vector<Ksiazka> dostepne_ksiazki;
 	for (Ksiazka ksiazka : Ksiazki) {
-		//SPrawdzenie czy ksi¹¿ka o danym tytule istneije
 		if (ksiazka.get_tytul().find(tytul) != std::string::npos)
-			if (ksiazka.get_ilosc() > 0)
-				dostepne_ksiazki.push(ksiazka);
+			dostepne_ksiazki.push(ksiazka);
 	}
 	return dostepne_ksiazki;
 }
@@ -57,10 +55,8 @@ Vector<Ksiazka> Database::get_ksiazki_by_autor(string autor)
 {
 	Vector<Ksiazka> dostepne_ksiazki;
 	for (Ksiazka ksiazka : Ksiazki) {
-		//SPrawdzenie czy ksi¹¿ka o danym tytule istneije
 		if (ksiazka.get_autor().find(autor) != std::string::npos)
-			if (ksiazka.get_ilosc() > 0)
-				dostepne_ksiazki.push(ksiazka);
+			dostepne_ksiazki.push(ksiazka);
 	}
 	return dostepne_ksiazki;
 }
@@ -71,8 +67,7 @@ Vector<Ksiazka> Database::get_ksiazki_by_wydawnictwo(string wydawnictwo)
 	for (Ksiazka ksiazka : Ksiazki) {
 		//SPrawdzenie czy ksi¹¿ka o danym tytule istneije
 		if (ksiazka.get_wydawnictwo().find(wydawnictwo) != std::string::npos)
-			if (ksiazka.get_ilosc() > 0)
-				dostepne_ksiazki.push(ksiazka);
+			dostepne_ksiazki.push(ksiazka);
 	}
 	return dostepne_ksiazki;
 }
@@ -83,8 +78,7 @@ Vector<Ksiazka> Database::get_ksiazki_by_rok_wydania(int rok_wydania)
 	for (Ksiazka ksiazka : Ksiazki) {
 		//SPrawdzenie czy ksi¹¿ka o danym tytule istneije
 		if (ksiazka.get_rok_wydania() == rok_wydania)
-			if (ksiazka.get_ilosc() > 0)
-				dostepne_ksiazki.push(ksiazka);
+			dostepne_ksiazki.push(ksiazka);
 	}
 	return dostepne_ksiazki;
 }

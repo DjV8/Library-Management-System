@@ -96,7 +96,9 @@ void Czytelnik::powiadomOZblizajacymSieTerminie(int dni, Database& db) {
 void Czytelnik::wyszukajDostepneKsiazki(const string& tytul, Database& db) {
 	cout << "Dostępne książki o tytule '" << tytul << "':" << endl;
 	Vector<Ksiazka> dostepne_ksiazki = db.get_ksiazki_by_tytul(tytul);
-	dostepne_ksiazki.print();
+	for (Ksiazka K : dostepne_ksiazki)
+		if (K.get_ilosc() > 0)
+			cout << K << endl;
 }
 
 //Wypożyczamy po ISBN bo tytuł może nie być unikalny
