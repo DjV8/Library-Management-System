@@ -2,59 +2,20 @@
 #include <iostream>
 using namespace std;
 
-/*
-void Ksiazka_W_Obiegu::zmienIlosc(Ksiazka& k, int nowaIlosc)
-{
-	k.zmien_ilosc(nowaIlosc);
-}
-*/
-/*
-void Ksiazka_W_Obiegu::zmienIlosc(const string& tytul, int nowaIlosc) {
-	// Realizacja metody zmiany ilości książki w obiegu
-
-	for (auto& ksiazka : ksiazki) {
-		if (ksiazka.tytul == tytul) {
-			ksiazka.ilosc = nowaIlosc;
-			cout << "Zmieniono ilość książki '" << tytul << "' na " << nowaIlosc << endl;
-			return;
-		}
-	}
-
-	// Jeśli książka o podanym tytule nie zostanie znaleziona
-cout << "Książka '" << tytul << "' nie została znaleziona w obiegu." << endl;
-}
-
-*/
-/*
-void Ksiazka_W_Obiegu::wypozycz(const string& tytul) {
-	// Realizacja metody wypożyczania książek
-	if (iloscKsiazek > 0) {
-		cout << "Ksiazka wypozyczona. Pozostalo ksiazek w obiegu: " << --iloscKsiazek << endl;
-	}
-	else {
-		cout << "Brak dostepnych ksiazek do wypozyczenia." << endl;
-	}
-
-}
-
-void Ksiazka_W_Obiegu::zwroc(const string& tytul) {
-	cout << "Ksiazka zwrocona. Ilosc ksiazek w obiegu: " << ++iloscKsiazek << endl;
-	// Realizacja metody zwrotu książki
-}
-
-*/
 
 ostream& operator<<(ostream& out, Ksiazka_W_Obiegu& ko) {
 	if (&out == &cout) {
 		//Wpisywanie do konsoli
-		cout << "Ksiazka W Obiegu: " << endl;
+		out << "Ksiazka W Obiegu: " << endl;
 		out << "ISBN: " << ko.ISBN << endl;
-		out << "login: " << ko.koniec_czasu << endl;
-		cout << "id uzytkownika: " << ko.id_osoby << endl;
+		out << "Czas Wyporzyczenia: " << ko.czas_wyporzyczenia << endl;
+		out << "Koniec Czasu Wyporzyczenia: " << ko.koniec_czasu_wyporzyczenia << endl;
+		out << "Zwrócona:" << ko.zwrot << endl;
+		out << "id uzytkownika: " << ko.id_osoby << endl;
 	}
 	else {
 		//Wpisywanie do pliku
-		out << endl << ko.ISBN << ";" << ko.koniec_czasu << ";" << ko.id_osoby << ";";
+		out << endl << ko.ISBN << ";" << ko.czas_wyporzyczenia << ";" << ko.koniec_czasu_wyporzyczenia << ";" << ko.id_osoby << ";" << ko.zwrot << ";";
 	}
 	return out;
 }
@@ -72,13 +33,19 @@ istream& operator>>(istream& in, Ksiazka_W_Obiegu& ko) {
 		else {
 			switch (id_zmiennej) {
 			case 0:
-				ko.ISBN;
+				ko.set_ISBN(tmp);
 				break;
 			case 1:
-				ko.koniec_czasu;
+				ko.set_czas_wyporzyczenia(stoi(tmp));
 				break;
 			case 2:
-				ko.id_osoby;
+				ko.set_koniec_czasu_wyporzyczenia(stoi(tmp));
+				break;
+			case 3:
+				ko.set_id_osoby(tmp);
+				break;
+			case 4:
+				ko.set_zwrot(stoi(tmp));
 				break;
 			}
 			id_zmiennej++;
@@ -90,12 +57,20 @@ istream& operator>>(istream& in, Ksiazka_W_Obiegu& ko) {
 }
 
 Ksiazka_W_Obiegu::Ksiazka_W_Obiegu() {
-	this->koniec_czasu = 0;
+	this->id_osoby = "";
+	this->ISBN = "";
+	this->koniec_czasu_wyporzyczenia = 0;
+	this->czas_wyporzyczenia = 0;
+	this->zwrot = false;
 }
 
-Ksiazka_W_Obiegu::Ksiazka_W_Obiegu(string ISBN, int koniec_czasu, string id_osoby)
+
+Ksiazka_W_Obiegu::Ksiazka_W_Obiegu(string id_osoby, string ISBN, int czas_wyporzyczenia, int koniec_czasu_wyporzyczenia, bool zwrot)
 {
-	this->ISBN = ISBN;
-	this->koniec_czasu = koniec_czasu;
 	this->id_osoby = id_osoby;
+	this->ISBN = ISBN;
+	this->koniec_czasu_wyporzyczenia = koniec_czasu_wyporzyczenia;
+	this->czas_wyporzyczenia = czas_wyporzyczenia;
+	this->zwrot = zwrot;
+
 }
