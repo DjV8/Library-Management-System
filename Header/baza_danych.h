@@ -30,6 +30,15 @@ public:
 	Vector<Ksiazka>* getKsiazki();
 	Vector<Admin>* getAdmins();
 
+	Vector<Ksiazka_W_Obiegu> get_ksiazki_w_obiegy_by_ISBN(string ISBN);
+	Vector<Ksiazka_W_Obiegu> get_ksiazki_w_obiegy_by_ID(string ID);
+
+	Vector<Ksiazka> get_ksiazki_by_tytul(string tytul);
+	Vector<Ksiazka> get_ksiazki_by_autor(string autor);
+	Vector<Ksiazka> get_ksiazki_by_wydawnictwo(string wydawnictwo);
+	Vector<Ksiazka> get_ksiazki_by_rok_wydania(int rok_wydania);
+	Ksiazka* get_ksiazka_by_ISBN(string ISBN);
+
 	void printAll();
 
 	void loadAll();
