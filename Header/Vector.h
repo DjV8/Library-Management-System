@@ -1,7 +1,8 @@
+#pragma once
 #include <iostream>
 
 template <typename T> class Vector {
-	T* data_array;
+	T* data_array = nullptr;
 	int capacity;
 	int current_ammount;
 public:
@@ -9,17 +10,20 @@ public:
 	~Vector();
 
 	void push(T data);
-	void pop(T data);
+	void pop();
 	void remove(int id);
 
 	T get(int index);
 	int size();
 	int getCapacity();
+	int getLen();
 
 	T* begin();
 	T* end();
 
 	void print();
+
+	T& operator [] (int index);
 };
 
 template<typename T>
@@ -34,6 +38,7 @@ template<typename T>
 inline Vector<T>::~Vector()
 {
 	delete[] data_array;
+	data_array = nullptr;
 }
 
 //dodawanie rzeczy na koniec vektora
@@ -54,7 +59,7 @@ inline void Vector<T>::push(T data)
 }
 
 template<typename T>
-inline void Vector<T>::pop(T data)
+inline void Vector<T>::pop()
 {
 	current_ammount--;
 }
@@ -88,6 +93,12 @@ inline int Vector<T>::getCapacity()
 	return capacity;
 }
 
+template<typename T>
+inline int Vector<T>::getLen()
+{
+	return current_ammount;
+}
+
 
 // begin() oraz end() s¹ potrzebne do for(T a: obj)
 template<typename T>
@@ -108,5 +119,11 @@ inline void Vector<T>::print()
 {
 	for (int i = 0; i < current_ammount; i++)
 		std::cout << data_array[i];
+}
+
+template<typename T>
+inline T& Vector<T>::operator[](int index)
+{
+	return data_array[index];
 }
 
