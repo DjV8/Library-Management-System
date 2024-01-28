@@ -3,6 +3,8 @@
 #include "../Header/baza_Danych.h"
 
 
+
+
 Vector<Czytelnik>* Database::getCzytelnicy() { return &Czytelnicy; }
 
 Vector<Ksiazka_W_Obiegu>* Database::getKsiazkiWObiegu() { return &Ksiazki_W_Obiegu; }
@@ -112,56 +114,32 @@ void Database::printAll()
 
 void Database::loadAll()
 {
-	ifstream bookFile("Data\\book.txt");
-	ifstream booksInUseFile("Data\\booksInUse.txt");
-	ifstream readerFile("Data\\reader.txt");
-	ifstream librarianFile("Data\\librarian.txt");
-	ifstream adminFile("Data\\admin.txt");
+	string book_loc = "Data\\book.txt";
+	string book_in_use_loc = "Data\\booksInUse.txt";
+	string reader_loc = "Data\\reader.txt";
+	string librarian_loc = "Data\\librarian.txt";
+	string admin_loc = "Data\\admin.txt";
 
+	load<Ksiazka>(book_loc, Ksiazki);
+	load<Ksiazka_W_Obiegu>(book_in_use_loc, Ksiazki_W_Obiegu);
+	load<Czytelnik>(reader_loc, Czytelnicy);
+	load<Pracownik>(librarian_loc, Pracownicy);
+	load<Admin>(admin_loc, Admini);
 
-	if (readerFile.is_open() && librarianFile.is_open() && adminFile.is_open() && bookFile.is_open() && booksInUseFile.is_open()) {
-
-		load<Ksiazka>(bookFile, Ksiazki);
-		load<Ksiazka_W_Obiegu>(booksInUseFile, Ksiazki_W_Obiegu);
-		load<Czytelnik>(readerFile, Czytelnicy);
-		load<Pracownik>(librarianFile, Pracownicy);
-		load<Admin>(adminFile, Admini);
-	}
-	else
-		cout << "Error during file opening." << endl;
-
-
-	bookFile.close();
-	booksInUseFile.close();
-	readerFile.close();
-	librarianFile.close();
-	adminFile.close();
 }
 
 void Database::saveAll()
 {
-	ofstream bookFile("Data\\book.txt");
-	ofstream booksInUseFile("Data\\booksInUse.txt");
-	ofstream readerFile("Data\\reader.txt");
-	ofstream librarianFile("Data\\librarian.txt");
-	ofstream adminFile("Data\\admin.txt");
+	string book_loc = "Data\\book.txt";
+	string book_in_use_loc = "Data\\booksInUse.txt";
+	string reader_loc = "Data\\reader.txt";
+	string librarian_loc = "Data\\librarian.txt";
+	string admin_loc = "Data\\admin.txt";
 
+	save<Ksiazka>(book_loc, Ksiazki);
+	save<Ksiazka_W_Obiegu>(book_in_use_loc, Ksiazki_W_Obiegu);
+	save<Czytelnik>(reader_loc, Czytelnicy);
+	save<Pracownik>(librarian_loc, Pracownicy);
+	save<Admin>(admin_loc, Admini);
 
-	if (readerFile.is_open() && librarianFile.is_open() && adminFile.is_open() && bookFile.is_open() && booksInUseFile.is_open()) {
-
-		save<Ksiazka>(bookFile, Ksiazki);
-		save<Ksiazka_W_Obiegu>(booksInUseFile, Ksiazki_W_Obiegu);
-		save<Czytelnik>(readerFile, Czytelnicy);
-		save<Pracownik>(librarianFile, Pracownicy);
-		save<Admin>(adminFile, Admini);
-	}
-	else
-		cout << "Error during file opening." << endl;
-
-
-	bookFile.close();
-	booksInUseFile.close();
-	readerFile.close();
-	librarianFile.close();
-	adminFile.close();
 }

@@ -18,8 +18,9 @@ class Database {
 	Vector<Ksiazka> Ksiazki;
 	Vector<Admin> Admini;
 
-	template <typename T> void load(ifstream& file, Vector<T>& destination);
-	template <typename T> void save(ofstream& file, Vector<T>& source);
+
+	template <typename T> void load(string file_loc, Vector<T>& destination);
+	template <typename T> void save(string file_loc, Vector<T>& source);
 
 public:
 	Database() { loadAll(); }
@@ -48,20 +49,33 @@ public:
 
 
 template<typename T>
-inline void Database::load(ifstream& file, Vector<T>& destination)
+inline void Database::load(string file_loc, Vector<T>& destination)
 {
+	ifstream file(file_loc);
+	if (file.fail()) {
+		cout << "Error during file opening." << endl;
+		return;
+	}
+
 	T tmp = T();
 	while (!file.eof()) {
 		file >> tmp;
 		//prawdopodobnie dodam tutaj sprawdzanie poprawnoœci obiektu tmp
 		destination.push(tmp);
 	}
+	file.close();
 }
 
 template<typename T>
-inline void Database::save(ofstream& file, Vector<T>& source)
+inline void Database::save(string file_loc, Vector<T>& source)
 {
+	ofstream file(file_loc);
+	if (file.fail()) {
+		cout << "Error during file opening." << endl;
+		return;
+	}
 	for (T b : source)
 		//prawdopodobnie dodam tutaj sprawdzanie poprawnoœci obiektu b
 		file << b;
+	file.close();
 }
