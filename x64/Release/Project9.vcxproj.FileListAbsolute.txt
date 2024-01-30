@@ -1,0 +1,5 @@
+C:\Users\Levi\Downloads\Project9\Project9\x64\Release\Project9.vcxproj.AssemblyReference.cache
+C:\Users\Levi\Downloads\Project9\Project9\x64\Release\Project9.DodajForm.resources
+C:\Users\Levi\Downloads\Project9\Project9\x64\Release\Project9.MyForm.resources
+C:\Users\Levi\Downloads\Project9\Project9\x64\Release\Project9.MyForm1.resources
+C:\Users\Levi\Downloads\Project9\Project9\x64\Release\Project9.vcxproj.GenerateResource.cache

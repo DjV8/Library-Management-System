@@ -1,0 +1,16 @@
+﻿  DodajForm.cpp
+  admin.cpp
+  baza_danych.cpp
+  czytelnik.cpp
+  ksiazka.cpp
+  ksiazka_w_obiegu.cpp
+  pracownik.cpp
+  uzytkownik.cpp
+  MyForm.cpp
+  MyForm1.cpp
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+  Generowanie kodu...
+C:\Users\Levi\Downloads\Project9\Project9\Lib\pracownik.cpp(71): warning C4715: "Pracownik::usunKsiazke”: niewszystkie ścieżki kodu zwracają wartość
+C:\Users\Levi\Downloads\Project9\Project9\Lib\pracownik.cpp(87): warning C4715: "Pracownik::usunwobiegu”: niewszystkie ścieżki kodu zwracają wartość
+  DodajForm.obj : napotkano moduł MSIL; konsolidowanie przyrostowe jest wyłączone dla modułów MSIL; zostanie wykonana pełna konsolidacja
+  Project9.vcxproj -> C:\Users\Levi\Downloads\Project9\x64\Release\Project9.exe
